@@ -21,8 +21,11 @@ In this take-home exercise
 
 # Getting Started
 
+
 ```{r}
-packages = c('tidyverse', 'ggdist', 'gghalves', 'ggridges')
+packages = c('tidyverse', 'ggdist', 'ggridges',
+             'patchwork', 'ggthemes', 'hrbrthemes',
+             'ggrepel', 'ggforce')
 for(p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -44,9 +47,32 @@ ggplot(data=part_data,
   geom_bar()
 ```
 
+```{r}
+ggplot(data=part_data, 
+       aes(x=householdSize)) +
+  geom_bar()
+```
+```{r}
+ggplot(data=part_data, 
+             aes(x = age)) +
+  geom_histogram(bins=20, 
+                 boundary = 100,
+                 color="grey25", 
+                 fill="grey90") +
+  ggtitle("Distribution of age") +
+  theme_economist()
+```
+
+```{r}
+ggplot(data=part_data,
+aes(y = joviality, x= haveKids)) +
+geom_boxplot()
+```
+
+```{r}
 
 
-
+```
 
 
 
