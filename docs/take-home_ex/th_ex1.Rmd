@@ -1,0 +1,60 @@
+---
+title: "Take-home Exercise 1"
+description: |
+  A new article created using the Distill format.
+author:
+  - name: Chu Yi Ning 
+    url: https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile
+    affiliation: SMU SCIS
+    affiliation_url: https://scis.smu.edu.sg/
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Overview
+
+In this take-home exercise
+
+# Getting Started
+
+```{r}
+packages = c('tidyverse', 'ggdist', 'gghalves', 'ggridges')
+for(p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
+```
+# Importing Data
+
+```{r}
+part_data <- read_csv("data/Participants.csv")
+```
+
+# A Simple Bar Chart
+
+```{r}
+ggplot(data=part_data, 
+       aes(x=educationLevel)) +
+  geom_bar()
+```
+
+
+
+
+
+
+
+Distill is a publication format for scientific and technical writing, native to the web. 
+
+Learn more about using Distill for R Markdown at <https://rstudio.github.io/distill>.
+
+
+
+
+
