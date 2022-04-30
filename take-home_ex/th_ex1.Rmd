@@ -17,10 +17,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Overview
 
-In this take-home exercise
+In this take-home exercise, I will explore the demographic of the city of Engagement, Ohio USA.
 
 # Getting Started
 
+The following packages will be used in this exercise.
 
 ```{r}
 packages = c('tidyverse', 'ggdist', 'ggridges',
@@ -41,11 +42,13 @@ part_data <- read_csv("data/Participants.csv")
 
 # A Simple Bar Chart
 
+### Bar chart of Education Level
 ```{r}
 ggplot(data=part_data, 
        aes(x=educationLevel)) +
   geom_bar()
 ```
+The majority of people have high school or college degree.
 
 ```{r}
 ggplot(data=part_data, 
@@ -69,10 +72,6 @@ aes(y = joviality, x= haveKids)) +
 geom_boxplot()
 ```
 
-```{r}
-
-
-```
 
 
 
