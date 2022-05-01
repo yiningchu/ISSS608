@@ -12,8 +12,16 @@ output: distill::distill_article
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
+
+
+## OVERVIEW
+
+In this take-home exercise, I will do some further analysis and improvement based on my classmate, Yeo Kim Siang's work.
+
+
+
 
 Distill is a publication format for scientific and technical writing, native to the web. 
 
