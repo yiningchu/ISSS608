@@ -1,7 +1,7 @@
 ---
 title: "Take-home exercise 2"
 description: |
-  A new article created using the Distill format.
+  
 author:
   - name: Chu Yi Ning 
     url: https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-# OVERVIEW
+# Overview
 
 In this take-home exercise, I will do some further analysis and improvement based on my classmate, Yeo Kim Siang's work.
 
@@ -50,7 +50,7 @@ ggplot(part_data, aes(fill = haveKids, x=householdSize)) +
 
 From the bar chart above, we can confirm that there's no kids within the households which contain only 1 or 2 members.
 
-# Scatter Plot for haveKids and educationLevel
+# Scatter Plot for haveKids and educationLevel, InterestGroup
 
 ```{r}
 p1 <- ggplot(part_data, aes(x=haveKids, y=educationLevel)) + 
