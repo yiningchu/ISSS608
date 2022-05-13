@@ -2502,7 +2502,7 @@ SCIS)<a href="https://scis.smu.edu.sg/" class="uri">https://scis.smu.edu.sg/</a>
 <h1 id="getting-started">Getting Started</h1>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="va">packages</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;patchwork&#39;</span>, <span class="st">&#39;dplyr&#39;</span><span class="op">)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">packages</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;patchwork&#39;</span>, <span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;lubridate&#39;</span><span class="op">)</span>
 <span class="kw">for</span><span class="op">(</span><span class="va">p</span> <span class="kw">in</span> <span class="va">packages</span><span class="op">)</span><span class="op">{</span>
   <span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">p</span>, character.only <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span>
@@ -2514,12 +2514,17 @@ SCIS)<a href="https://scis.smu.edu.sg/" class="uri">https://scis.smu.edu.sg/</a>
 </div>
 <h2 id="data-cleaning">Data Cleaning</h2>
 <div class="layout-chunk" data-layout="l-body">
-
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">&quot;data/FinancialJournal.csv&quot;</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+</code></pre>
+</div>
+<pre><code>[1] 1856330       4</code></pre>
 </div>
 <h3 id="order-by-participant-id">Order by Participant ID</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">participantId</span><span class="op">)</span>,<span class="op">]</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">data_orderBypart</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">participantId</span><span class="op">)</span>,<span class="op">]</span>
 </code></pre>
 </div>
 </div>
@@ -2534,7 +2539,53 @@ SCIS)<a href="https://scis.smu.edu.sg/" class="uri">https://scis.smu.edu.sg/</a>
 4             0 2022-03-01 00:00:00 Shelter   -555. 
 5             0 2022-03-01 00:00:00 Education  -38.0</code></pre>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>distinct function in dplyr will be used to remove duplicates</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">data_clean</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">distinct</span><span class="op">(</span><span class="va">participantId</span>, <span class="va">timestamp</span>, <span class="va">category</span>, <span class="va">amount</span>,
+                   .keep_all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_clean</span>, <span class="fl">10</span><span class="op">)</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 10 x 4
+   participantId timestamp           category  amount
+           &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;      &lt;dbl&gt;
+ 1             0 2022-03-01 00:00:00 Wage      2473. 
+ 2             0 2022-03-01 00:00:00 Shelter   -555. 
+ 3             0 2022-03-01 00:00:00 Education  -38.0
+ 4             1 2022-03-01 00:00:00 Wage      2047. 
+ 5             1 2022-03-01 00:00:00 Shelter   -555. 
+ 6             1 2022-03-01 00:00:00 Education  -38.0
+ 7             2 2022-03-01 00:00:00 Wage      2437. 
+ 8             2 2022-03-01 00:00:00 Shelter   -557. 
+ 9             2 2022-03-01 00:00:00 Education  -12.8
+10             3 2022-03-01 00:00:00 Wage      2367. </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">data_clean</span><span class="op">)</span>
+</code></pre>
+</div>
+<pre><code>[1] 1855217       4</code></pre>
+</div>
+<p>There are 1113 duplicates in total.</p>
+<h3 id="add-a-new-column-month-which-extract-month-from-timestamp">Add a
+new column Month which extract month from timestamp</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">data_clean</span><span class="op">[</span><span class="st">&#39;month&#39;</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">month</span><span class="op">(</span><span class="va">data_clean</span><span class="op">$</span><span class="va">timestamp</span><span class="op">)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code># A tibble: 5 x 5
+  participantId timestamp           category  amount month
+          &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+1             0 2022-03-01 00:00:00 Wage      2473.      3
+2             0 2022-03-01 00:00:00 Shelter   -555.      3
+3             0 2022-03-01 00:00:00 Education  -38.0     3
+4             1 2022-03-01 00:00:00 Wage      2047.      3
+5             1 2022-03-01 00:00:00 Shelter   -555.      3</code></pre>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
