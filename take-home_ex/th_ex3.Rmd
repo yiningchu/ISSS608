@@ -1,0 +1,52 @@
+---
+title: "Take-home Exercise 3"
+description: |
+  A new article created using the Distill format.
+author:
+  - name: Chu Yi Ning 
+    url: https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile
+    affiliation: SMU SCIS
+    affiliation_url: https://scis.smu.edu.sg/
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Overview
+
+# Getting Started
+
+```{r}
+packages = c('tidyverse', 'patchwork', 'dplyr')
+for(p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
+```
+
+
+## Data Cleaning
+
+```{r, echo = FALSE}
+data <- read_csv("data/FinancialJournal.csv")
+```
+### Order by Participant ID
+```{r}
+data <- data[order(data$participantId),]
+```
+
+
+We can see there are some duplicates for Shelter and Education.
+
+
+```{r, echo=FALSE}
+head(data, 5)
+```
+
+
+
