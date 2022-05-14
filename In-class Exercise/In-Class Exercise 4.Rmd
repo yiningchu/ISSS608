@@ -1,6 +1,6 @@
 ---
 title: "In-class Exercise 4"
-description: |
+description: 
   
 author:
   - name: Chu Yi Ning 
