@@ -20,7 +20,8 @@ knitr::opts_chunk$set(echo = TRUE)
 # Getting Started
 
 ```{r}
-packages = c('tidyverse', 'patchwork', 'dplyr', 'lubridate', 'knitr', 'zoo')
+packages = c('tidyverse', 'patchwork', 'dplyr', 'lubridate',
+             'knitr', 'zoo', 'ggplot2', 'plotly', 'scales', 'directlabels')
 for(p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -81,7 +82,7 @@ data_clean <- data_clean %>%
  
 data_tidy <- data_clean %>% 
               group_by(yearmonth, category) %>%
-              summarise(amount = sum(amount),
+              summarise(amount = abs(sum(amount)),
                              .groups = 'drop')
 
 ```
@@ -96,8 +97,17 @@ data_tidy <- data_tidy %>%
   mutate(CostofLiving = select(., Education, Food, Shelter) %>% rowSums(na.rm = TRUE))
 ```
 
+```{r, echo = FALSE}
+kable(head(data_tidy))
+```
 
-
+```{r}
+p1 <- ggplot(data = data_tidy, aes(x = yearmonth, y = Wage), group = label) +
+   geom_line(colour = "grey", aes(yearmonth, CostofLiving)) +
+   geom_line(colour = "#408FA6")+
+   scale_y_continuous(labels = comma)
+ggplotly(p1)
+```
 
 
 
