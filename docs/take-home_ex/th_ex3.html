@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-05-13" />
-  <meta property="article:created" itemprop="dateCreated" content="2022-05-13" />
+  <meta property="article:published" itemprop="datePublished" content="2022-05-15" />
+  <meta property="article:created" itemprop="dateCreated" content="2022-05-15" />
   <meta name="article:author" content="Chu Yi Ning" />
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -112,7 +112,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Take-home Exercise 3"]},{"type":"character","attributes":{},"value":["A new article created using the Distill format.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Chu Yi Ning"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"]},{"type":"character","attributes":{},"value":["SMU SCIS"]},{"type":"character","attributes":{},"value":["https://scis.smu.edu.sg/"]}]}]},{"type":"character","attributes":{},"value":["2022-05-13"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Take-home Exercise 3"]},{"type":"character","attributes":{},"value":["A new article created using the Distill format.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Chu Yi Ning"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"]},{"type":"character","attributes":{},"value":["SMU SCIS"]},{"type":"character","attributes":{},"value":["https://scis.smu.edu.sg/"]}]}]},{"type":"character","attributes":{},"value":["2022-05-15"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2474,7 +2474,7 @@ distill-header .nav a {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Take-home Exercise 3","description":"A new article created using the Distill format.","authors":[{"author":"Chu Yi Ning","authorURL":"https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile","affiliation":"SMU SCIS","affiliationURL":"https://scis.smu.edu.sg/","orcidID":""}],"publishedDate":"2022-05-13T00:00:00.000+08:00","citationText":"Ning, 2022"}
+{"title":"Take-home Exercise 3","description":"A new article created using the Distill format.","authors":[{"author":"Chu Yi Ning","authorURL":"https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile","affiliation":"SMU SCIS","affiliationURL":"https://scis.smu.edu.sg/","orcidID":""}],"publishedDate":"2022-05-15T00:00:00.000+08:00","citationText":"Ning, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2494,7 +2494,7 @@ distill-header .nav a {
   Chu Yi Ning <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" class="uri">https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile</a> (SMU
 SCIS)<a href="https://scis.smu.edu.sg/" class="uri">https://scis.smu.edu.sg/</a>
   
-<br />2022-05-13
+<br />2022-05-15
 </div>
 
 <div class="d-article">
@@ -2502,7 +2502,7 @@ SCIS)<a href="https://scis.smu.edu.sg/" class="uri">https://scis.smu.edu.sg/</a>
 <h1 id="getting-started">Getting Started</h1>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="va">packages</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;patchwork&#39;</span>, <span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;lubridate&#39;</span><span class="op">)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">packages</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;patchwork&#39;</span>, <span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;lubridate&#39;</span>, <span class="st">&#39;knitr&#39;</span>, <span class="st">&#39;zoo&#39;</span><span class="op">)</span>
 <span class="kw">for</span><span class="op">(</span><span class="va">p</span> <span class="kw">in</span> <span class="va">packages</span><span class="op">)</span><span class="op">{</span>
   <span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">p</span>, character.only <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
     <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="va">p</span><span class="op">)</span>
@@ -2528,64 +2528,160 @@ SCIS)<a href="https://scis.smu.edu.sg/" class="uri">https://scis.smu.edu.sg/</a>
 </code></pre>
 </div>
 </div>
-<p>We can see there are some duplicates for Shelter and Education.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code># A tibble: 5 x 4
-  participantId timestamp           category  amount
-          &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;      &lt;dbl&gt;
-1             0 2022-03-01 00:00:00 Wage      2473. 
-2             0 2022-03-01 00:00:00 Shelter   -555. 
-3             0 2022-03-01 00:00:00 Education  -38.0
-4             0 2022-03-01 00:00:00 Shelter   -555. 
-5             0 2022-03-01 00:00:00 Education  -38.0</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">participantId</th>
+<th style="text-align: left;">timestamp</th>
+<th style="text-align: left;">category</th>
+<th style="text-align: right;">amount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2022-03-01 00:00:00</td>
+<td style="text-align: left;">Wage</td>
+<td style="text-align: right;">2472.507559</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2022-03-01 00:00:00</td>
+<td style="text-align: left;">Shelter</td>
+<td style="text-align: right;">-554.988622</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2022-03-01 00:00:00</td>
+<td style="text-align: left;">Education</td>
+<td style="text-align: right;">-38.005380</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2022-03-01 00:00:00</td>
+<td style="text-align: left;">Shelter</td>
+<td style="text-align: right;">-554.988622</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2022-03-01 00:00:00</td>
+<td style="text-align: left;">Education</td>
+<td style="text-align: right;">-38.005380</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2022-03-01 08:25:00</td>
+<td style="text-align: left;">Wage</td>
+<td style="text-align: right;">4.284167</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>distinct function in dplyr will be used to remove duplicates</p>
+<p>We can see there are some duplicates for Shelter and Education.</p>
+<p><strong>distinct</strong> function in dplyr will be used to remove
+duplicates</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="va">data_clean</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu">distinct</span><span class="op">(</span><span class="va">participantId</span>, <span class="va">timestamp</span>, <span class="va">category</span>, <span class="va">amount</span>,
                    .keep_all <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_clean</span>, <span class="fl">10</span><span class="op">)</span>
 </code></pre>
 </div>
-<pre><code># A tibble: 10 x 4
-   participantId timestamp           category  amount
-           &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;      &lt;dbl&gt;
- 1             0 2022-03-01 00:00:00 Wage      2473. 
- 2             0 2022-03-01 00:00:00 Shelter   -555. 
- 3             0 2022-03-01 00:00:00 Education  -38.0
- 4             1 2022-03-01 00:00:00 Wage      2047. 
- 5             1 2022-03-01 00:00:00 Shelter   -555. 
- 6             1 2022-03-01 00:00:00 Education  -38.0
- 7             2 2022-03-01 00:00:00 Wage      2437. 
- 8             2 2022-03-01 00:00:00 Shelter   -557. 
- 9             2 2022-03-01 00:00:00 Education  -12.8
-10             3 2022-03-01 00:00:00 Wage      2367. </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">participantId</th>
+<th style="text-align: left;">timestamp</th>
+<th style="text-align: left;">category</th>
+<th style="text-align: right;">amount</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2022-03-01 00:00:00</td>
+<td style="text-align: left;">Wage</td>
+<td style="text-align: right;">2472.507559</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2022-03-01 00:00:00</td>
+<td style="text-align: left;">Shelter</td>
+<td style="text-align: right;">-554.988622</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2022-03-01 00:00:00</td>
+<td style="text-align: left;">Education</td>
+<td style="text-align: right;">-38.005380</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2022-03-01 08:25:00</td>
+<td style="text-align: left;">Wage</td>
+<td style="text-align: right;">4.284167</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2022-03-01 08:50:00</td>
+<td style="text-align: left;">Food</td>
+<td style="text-align: right;">-4.173345</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">2022-03-01 16:25:00</td>
+<td style="text-align: left;">Wage</td>
+<td style="text-align: right;">385.575003</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">data_clean</span><span class="op">)</span>
 </code></pre>
 </div>
 <pre><code>[1] 1855217       4</code></pre>
 </div>
-<p>There are 1113 duplicates in total.</p>
+<p>There are 1113 duplicates.</p>
 <h3 id="add-a-new-column-month-which-extract-month-from-timestamp">Add a
 new column Month which extract month from timestamp</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="va">data_clean</span><span class="op">[</span><span class="st">&#39;month&#39;</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">month</span><span class="op">(</span><span class="va">data_clean</span><span class="op">$</span><span class="va">timestamp</span><span class="op">)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">data_clean</span> <span class="op">&lt;-</span> <span class="va">data_clean</span> <span class="op">%&gt;%</span>
+  <span class="fu">mutate</span><span class="op">(</span>yearmonth <span class="op">=</span> <span class="fu">as.yearmon</span><span class="op">(</span><span class="va">timestamp</span><span class="op">)</span><span class="op">)</span>
 </code></pre>
 </div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code># A tibble: 5 x 5
-  participantId timestamp           category  amount month
-          &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
-1             0 2022-03-01 00:00:00 Wage      2473.      3
-2             0 2022-03-01 00:00:00 Shelter   -555.      3
-3             0 2022-03-01 00:00:00 Education  -38.0     3
-4             1 2022-03-01 00:00:00 Wage      2047.      3
-5             1 2022-03-01 00:00:00 Shelter   -555.      3</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">data_tidy</span> <span class="op">&lt;-</span> <span class="va">data_clean</span> <span class="op">%&gt;%</span> 
+              <span class="fu">group_by</span><span class="op">(</span><span class="va">yearmonth</span>, <span class="va">category</span><span class="op">)</span> <span class="op">%&gt;%</span>
+              <span class="fu">summarise</span><span class="op">(</span>amount <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">amount</span><span class="op">)</span>,
+                             .groups <span class="op">=</span> <span class="st">&#39;drop&#39;</span><span class="op">)</span>
+</code></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">data_tidy</span> <span class="op">&lt;-</span> <span class="va">data_tidy</span> <span class="op">%&gt;%</span>
+  <span class="fu">spread</span><span class="op">(</span><span class="va">category</span>, <span class="va">amount</span><span class="op">)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">data_tidy</span> <span class="op">&lt;-</span> <span class="va">data_tidy</span> <span class="op">%&gt;%</span>
+  <span class="fu">mutate</span><span class="op">(</span>CostofLiving <span class="op">=</span> <span class="fu">select</span><span class="op">(</span><span class="va">.</span>, <span class="va">Education</span>, <span class="va">Food</span>, <span class="va">Shelter</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span>na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
+</code></pre>
+</div>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

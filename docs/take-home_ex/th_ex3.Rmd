@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Getting Started
 
 ```{r}
-packages = c('tidyverse', 'patchwork', 'dplyr', 'lubridate')
+packages = c('tidyverse', 'patchwork', 'dplyr', 'lubridate', 'knitr', 'zoo')
 for(p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -37,38 +37,67 @@ data <- read_csv("data/FinancialJournal.csv")
 dim(data)
 ```
 ### Order by Participant ID
-```{r}
+```{r, results = 'hide'}
 data_orderBypart <- data[order(data$participantId),]
 ```
 
 
+```{r, echo = FALSE}
+kable(head(data_orderBypart))
+```
+
 We can see there are some duplicates for Shelter and Education.
 
 
-```{r, echo=FALSE}
-head(data_orderBypart, 5)
-```
-
-
-distinct function in dplyr will be used to remove duplicates
+**distinct** function in dplyr will be used to remove duplicates
 
 ```{r}
 data_clean <- data %>% distinct(participantId, timestamp, category, amount,
                    .keep_all = TRUE)
-head(data_clean, 10)
-dim(data_clean)
-```
-
-There are 1113 duplicates in total.
-
-### Add a new column Month which extract month from timestamp
-```{r}
-data_clean['month'] <- month(data_clean$timestamp)
 ```
 
 ```{r, echo = FALSE}
-head(data_clean, 5)
+data_clean2 <- data_clean[order(data_clean$participantId),]
 ```
+
+
+```{r, echo = FALSE}
+kable(head(data_clean2))
+```
+
+```{r}
+dim(data_clean)
+```
+
+There are 1113 duplicates.
+
+### Add a new column Month which extract month from timestamp
+```{r}
+data_clean <- data_clean %>%
+  mutate(yearmonth = as.yearmon(timestamp))
+```
+
+```{r}
+ 
+data_tidy <- data_clean %>% 
+              group_by(yearmonth, category) %>%
+              summarise(amount = sum(amount),
+                             .groups = 'drop')
+
+```
+
+```{r}
+data_tidy <- data_tidy %>%
+  spread(category, amount)
+```
+
+```{r}
+data_tidy <- data_tidy %>%
+  mutate(CostofLiving = select(., Education, Food, Shelter) %>% rowSums(na.rm = TRUE))
+```
+
+
+
 
 
 
