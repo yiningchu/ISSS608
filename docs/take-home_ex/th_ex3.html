@@ -93,8 +93,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-05-15" />
-  <meta property="article:created" itemprop="dateCreated" content="2022-05-15" />
+  <meta property="article:published" itemprop="datePublished" content="2022-05-16" />
+  <meta property="article:created" itemprop="dateCreated" content="2022-05-16" />
   <meta name="article:author" content="Chu Yi Ning" />
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -112,7 +112,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Take-home Exercise 3"]},{"type":"character","attributes":{},"value":["A new article created using the Distill format.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Chu Yi Ning"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"]},{"type":"character","attributes":{},"value":["SMU SCIS"]},{"type":"character","attributes":{},"value":["https://scis.smu.edu.sg/"]}]}]},{"type":"character","attributes":{},"value":["2022-05-15"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Take-home Exercise 3"]},{"type":"character","attributes":{},"value":["A new article created using the Distill format.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Chu Yi Ning"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"]},{"type":"character","attributes":{},"value":["SMU SCIS"]},{"type":"character","attributes":{},"value":["https://scis.smu.edu.sg/"]}]}]},{"type":"character","attributes":{},"value":["2022-05-16"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -4411,7 +4411,7 @@ distill-header .nav a {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Take-home Exercise 3","description":"A new article created using the Distill format.","authors":[{"author":"Chu Yi Ning","authorURL":"https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile","affiliation":"SMU SCIS","affiliationURL":"https://scis.smu.edu.sg/","orcidID":""}],"publishedDate":"2022-05-15T00:00:00.000+08:00","citationText":"Ning, 2022"}
+{"title":"Take-home Exercise 3","description":"A new article created using the Distill format.","authors":[{"author":"Chu Yi Ning","authorURL":"https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile","affiliation":"SMU SCIS","affiliationURL":"https://scis.smu.edu.sg/","orcidID":""}],"publishedDate":"2022-05-16T00:00:00.000+08:00","citationText":"Ning, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -4431,7 +4431,7 @@ distill-header .nav a {
   Chu Yi Ning <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" class="uri">https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile</a> (SMU
 SCIS)<a href="https://scis.smu.edu.sg/" class="uri">https://scis.smu.edu.sg/</a>
   
-<br />2022-05-15
+<br />2022-05-16
 </div>
 
 <div class="d-article">
@@ -4439,7 +4439,7 @@ SCIS)<a href="https://scis.smu.edu.sg/" class="uri">https://scis.smu.edu.sg/</a>
 <h1 id="getting-started">Getting Started</h1>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="va">packages</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;patchwork&#39;</span>, <span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;lubridate&#39;</span>,
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">packages</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">&#39;tidyverse&#39;</span>, <span class="st">&#39;patchwork&#39;</span>, <span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;lubridate&#39;</span>, <span class="st">&#39;reshape2&#39;</span>, <span class="st">&#39;ggthemes&#39;</span>,
              <span class="st">&#39;knitr&#39;</span>, <span class="st">&#39;zoo&#39;</span>, <span class="st">&#39;ggplot2&#39;</span>, <span class="st">&#39;plotly&#39;</span>, <span class="st">&#39;scales&#39;</span>, <span class="st">&#39;directlabels&#39;</span><span class="op">)</span>
 <span class="kw">for</span><span class="op">(</span><span class="va">p</span> <span class="kw">in</span> <span class="va">packages</span><span class="op">)</span><span class="op">{</span>
   <span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">p</span>, character.only <span class="op">=</span> <span class="cn">T</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
@@ -4709,17 +4709,95 @@ new column Month which extract month from timestamp</h3>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_tidy</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">yearmonth</span>, y <span class="op">=</span> <span class="va">Wage</span><span class="op">)</span>, group <span class="op">=</span> <span class="va">label</span><span class="op">)</span> <span class="op">+</span>
-   <span class="fu">geom_line</span><span class="op">(</span>colour <span class="op">=</span> <span class="st">&quot;grey&quot;</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">yearmonth</span>, <span class="va">CostofLiving</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-   <span class="fu">geom_line</span><span class="op">(</span>colour <span class="op">=</span> <span class="st">&quot;#408FA6&quot;</span><span class="op">)</span><span class="op">+</span>
-   <span class="fu">scale_y_continuous</span><span class="op">(</span>labels <span class="op">=</span> <span class="va">comma</span><span class="op">)</span>
-<span class="fu">ggplotly</span><span class="op">(</span><span class="va">p1</span><span class="op">)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">data_tidy2</span> <span class="op">&lt;-</span> <span class="va">data_tidy</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>,<span class="op">-</span><span class="fl">3</span>,<span class="op">-</span><span class="fl">5</span>,<span class="op">-</span><span class="fl">6</span><span class="op">)</span><span class="op">]</span>
 </code></pre>
 </div>
-<div id="htmlwidget-bba18ff0ec74824f55b2" style="width:624px;height:384px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bba18ff0ec74824f55b2">{"x":{"data":[{"x":[2022.16666666667,2022.25,2022.33333333333,2022.41666666667,2022.5,2022.58333333333,2022.66666666667,2022.75,2022.83333333333,2022.91666666667,2023,2023.08333333333,2023.16666666667,2023.25,2023.33333333333],"y":[973820.10071829,875639.070880462,883429.77843585,872783.345004425,883693.508427171,882715.478674451,872752.217240646,883451.416747466,872721.287401324,882976.94536498,883146.113520935,852352.029809817,882848.615837493,873691.034785979,812179.78556578],"text":["yearmonth: Mar 2022<br />CostofLiving: 973820.1","yearmonth: Apr 2022<br />CostofLiving: 875639.1","yearmonth: May 2022<br />CostofLiving: 883429.8","yearmonth: Jun 2022<br />CostofLiving: 872783.3","yearmonth: Jul 2022<br />CostofLiving: 883693.5","yearmonth: Aug 2022<br />CostofLiving: 882715.5","yearmonth: Sep 2022<br />CostofLiving: 872752.2","yearmonth: Oct 2022<br />CostofLiving: 883451.4","yearmonth: Nov 2022<br />CostofLiving: 872721.3","yearmonth: Dec 2022<br />CostofLiving: 882976.9","yearmonth: Jan 2023<br />CostofLiving: 883146.1","yearmonth: Feb 2023<br />CostofLiving: 852352.0","yearmonth: Mar 2023<br />CostofLiving: 882848.6","yearmonth: Apr 2023<br />CostofLiving: 873691.0","yearmonth: May 2023<br />CostofLiving: 812179.8"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(190,190,190,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2022.16666666667,2022.25,2022.33333333333,2022.41666666667,2022.5,2022.58333333333,2022.66666666667,2022.75,2022.83333333333,2022.91666666667,2023,2023.08333333333,2023.16666666667,2023.25,2023.33333333333],"y":[6402719.83474012,3468756.21668682,3623067.58150202,3608882.61421975,3485798.98103891,3763807.41363481,3610503.57290704,3483352.19862171,3607155.93691445,3627931.74938875,3623060.98527457,3292643.33135255,3767956.42537367,3326739.01387118,2940645.98053857],"text":["yearmonth: Mar 2022<br />Wage: 6402720","yearmonth: Apr 2022<br />Wage: 3468756","yearmonth: May 2022<br />Wage: 3623068","yearmonth: Jun 2022<br />Wage: 3608883","yearmonth: Jul 2022<br />Wage: 3485799","yearmonth: Aug 2022<br />Wage: 3763807","yearmonth: Sep 2022<br />Wage: 3610504","yearmonth: Oct 2022<br />Wage: 3483352","yearmonth: Nov 2022<br />Wage: 3607156","yearmonth: Dec 2022<br />Wage: 3627932","yearmonth: Jan 2023<br />Wage: 3623061","yearmonth: Feb 2023<br />Wage: 3292643","yearmonth: Mar 2023<br />Wage: 3767956","yearmonth: Apr 2023<br />Wage: 3326739","yearmonth: May 2023<br />Wage: 2940646"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(64,143,166,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":27.8721461187215,"r":7.30593607305936,"b":41.8264840182648,"l":78.1735159817352},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2022.10833333333,2023.39166666667],"tickmode":"array","ticktext":["Mar 2022","May 2022","Aug 2022","Oct 2022","Jan 2023","Mar 2023","May 2023"],"tickvals":[2022.16666666667,2022.33333333333,2022.58333333333,2022.75,2023,2023.16666666667,2023.33333333333],"categoryorder":"array","categoryarray":["Mar 2022","May 2022","Aug 2022","Oct 2022","Jan 2023","Mar 2023","May 2023"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"yearmonth","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[532652.783107063,6682246.83719884],"tickmode":"array","ticktext":["2,000,000","4,000,000","6,000,000"],"tickvals":[2000000,4000000,6000000],"categoryorder":"array","categoryarray":["2,000,000","4,000,000","6,000,000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Wage","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"61444bc69e4":{"x":{},"y":{},"type":"scatter"},"614416b31d30":{"x":{},"y":{}}},"cur_data":"61444bc69e4","visdat":{"61444bc69e4":["function (y) ","x"],"614416b31d30":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">data_tidy3</span> <span class="op">&lt;-</span> <span class="fu">melt</span><span class="op">(</span><span class="va">data_tidy2</span>, id.vars <span class="op">=</span> <span class="st">&#39;yearmonth&#39;</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_tidy3</span><span class="op">)</span>
+</code></pre>
+</div>
+<pre><code>  yearmonth   variable    value
+1  Mar 2022 Recreation 649590.7
+2  Apr 2022 Recreation 389694.9
+3  May 2022 Recreation 336418.1
+4  Jun 2022 Recreation 314808.3
+5  Jul 2022 Recreation 329613.2
+6  Aug 2022 Recreation 306962.6</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="fu">rename</span><span class="op">(</span><span class="va">data_tidy3</span>, category <span class="op">=</span> <span class="va">variable</span>, amount <span class="op">=</span> <span class="va">value</span><span class="op">)</span>
+</code></pre>
+</div>
+<pre><code>   yearmonth     category    amount
+1   Mar 2022   Recreation  649590.7
+2   Apr 2022   Recreation  389694.9
+3   May 2022   Recreation  336418.1
+4   Jun 2022   Recreation  314808.3
+5   Jul 2022   Recreation  329613.2
+6   Aug 2022   Recreation  306962.6
+7   Sep 2022   Recreation  301910.3
+8   Oct 2022   Recreation  326722.3
+9   Nov 2022   Recreation  288290.5
+10  Dec 2022   Recreation  316620.8
+11  Jan 2023   Recreation  311579.8
+12  Feb 2023   Recreation  271126.5
+13  Mar 2023   Recreation  295210.4
+14  Apr 2023   Recreation  310294.3
+15  May 2023   Recreation  224251.5
+16  Mar 2022         Wage 6402719.8
+17  Apr 2022         Wage 3468756.2
+18  May 2022         Wage 3623067.6
+19  Jun 2022         Wage 3608882.6
+20  Jul 2022         Wage 3485799.0
+21  Aug 2022         Wage 3763807.4
+22  Sep 2022         Wage 3610503.6
+23  Oct 2022         Wage 3483352.2
+24  Nov 2022         Wage 3607155.9
+25  Dec 2022         Wage 3627931.7
+26  Jan 2023         Wage 3623061.0
+27  Feb 2023         Wage 3292643.3
+28  Mar 2023         Wage 3767956.4
+29  Apr 2023         Wage 3326739.0
+30  May 2023         Wage 2940646.0
+31  Mar 2022 CostofLiving  973820.1
+32  Apr 2022 CostofLiving  875639.1
+33  May 2022 CostofLiving  883429.8
+34  Jun 2022 CostofLiving  872783.3
+35  Jul 2022 CostofLiving  883693.5
+36  Aug 2022 CostofLiving  882715.5
+37  Sep 2022 CostofLiving  872752.2
+38  Oct 2022 CostofLiving  883451.4
+39  Nov 2022 CostofLiving  872721.3
+40  Dec 2022 CostofLiving  882976.9
+41  Jan 2023 CostofLiving  883146.1
+42  Feb 2023 CostofLiving  852352.0
+43  Mar 2023 CostofLiving  882848.6
+44  Apr 2023 CostofLiving  873691.0
+45  May 2023 CostofLiving  812179.8</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">data_tidy3</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">yearmonth</span>, y <span class="op">=</span> <span class="va">value</span>, colour <span class="op">=</span> <span class="va">variable</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>linetype <span class="op">=</span> <span class="va">variable</span><span class="op">)</span>, lwd <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">scale_color_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">&quot;darkred&quot;</span>, <span class="st">&quot;steelblue&quot;</span>,  <span class="st">&quot;orange4&quot;</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">scale_y_continuous</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">scales</span><span class="fu">::</span><span class="va"><a href="https://scales.r-lib.org/reference/label_number.html">comma</a></span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">ylab</span><span class="op">(</span><span class="st">&quot;Amount&quot;</span><span class="op">)</span><span class="op">+</span><span class="fu">theme_economist</span><span class="op">(</span><span class="op">)</span><span class="op">+</span><span class="fu">theme</span><span class="op">(</span>legend.position<span class="op">=</span><span class="st">&quot;none&quot;</span><span class="op">)</span><span class="co">#+</span>
+  <span class="co">#geom_dl(aes(label = variable), method = list(dl.trans(x = x + .2), &quot;last.points&quot;))</span>
+
+<span class="fu">ggplotly</span><span class="op">(</span><span class="va">p1</span>, tooltip <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">&#39;yearmonth&#39;</span>, <span class="st">&#39;value&#39;</span><span class="op">)</span><span class="op">)</span>
+</code></pre>
+</div>
+<div id="htmlwidget-b897267232a7db892478" style="width:624px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b897267232a7db892478">{"x":{"data":[{"x":[2022.16666666667,2022.25,2022.33333333333,2022.41666666667,2022.5,2022.58333333333,2022.66666666667,2022.75,2022.83333333333,2022.91666666667,2023,2023.08333333333,2023.16666666667,2023.25,2023.33333333333],"y":[649590.718485416,389694.875678679,336418.146394053,314808.290741979,329613.186818074,306962.551188967,301910.319431725,326722.271564222,288290.484757822,316620.837357936,311579.808002454,271126.544984203,295210.418593229,310294.341649545,224251.508018201],"text":["yearmonth: Mar 2022<br />value:  649590.7","yearmonth: Apr 2022<br />value:  389694.9","yearmonth: May 2022<br />value:  336418.1","yearmonth: Jun 2022<br />value:  314808.3","yearmonth: Jul 2022<br />value:  329613.2","yearmonth: Aug 2022<br />value:  306962.6","yearmonth: Sep 2022<br />value:  301910.3","yearmonth: Oct 2022<br />value:  326722.3","yearmonth: Nov 2022<br />value:  288290.5","yearmonth: Dec 2022<br />value:  316620.8","yearmonth: Jan 2023<br />value:  311579.8","yearmonth: Feb 2023<br />value:  271126.5","yearmonth: Mar 2023<br />value:  295210.4","yearmonth: Apr 2023<br />value:  310294.3","yearmonth: May 2023<br />value:  224251.5"],"type":"scatter","mode":"lines","line":{"width":4.53543307086614,"color":"rgba(139,0,0,1)","dash":"solid"},"hoveron":"points","name":"Recreation","legendgroup":"Recreation","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2022.16666666667,2022.25,2022.33333333333,2022.41666666667,2022.5,2022.58333333333,2022.66666666667,2022.75,2022.83333333333,2022.91666666667,2023,2023.08333333333,2023.16666666667,2023.25,2023.33333333333],"y":[6402719.83474012,3468756.21668682,3623067.58150202,3608882.61421975,3485798.98103891,3763807.41363481,3610503.57290704,3483352.19862171,3607155.93691445,3627931.74938875,3623060.98527457,3292643.33135255,3767956.42537367,3326739.01387118,2940645.98053857],"text":["yearmonth: Mar 2022<br />value: 6402719.8","yearmonth: Apr 2022<br />value: 3468756.2","yearmonth: May 2022<br />value: 3623067.6","yearmonth: Jun 2022<br />value: 3608882.6","yearmonth: Jul 2022<br />value: 3485799.0","yearmonth: Aug 2022<br />value: 3763807.4","yearmonth: Sep 2022<br />value: 3610503.6","yearmonth: Oct 2022<br />value: 3483352.2","yearmonth: Nov 2022<br />value: 3607155.9","yearmonth: Dec 2022<br />value: 3627931.7","yearmonth: Jan 2023<br />value: 3623061.0","yearmonth: Feb 2023<br />value: 3292643.3","yearmonth: Mar 2023<br />value: 3767956.4","yearmonth: Apr 2023<br />value: 3326739.0","yearmonth: May 2023<br />value: 2940646.0"],"type":"scatter","mode":"lines","line":{"width":4.53543307086614,"color":"rgba(70,130,180,1)","dash":"dash"},"hoveron":"points","name":"Wage","legendgroup":"Wage","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2022.16666666667,2022.25,2022.33333333333,2022.41666666667,2022.5,2022.58333333333,2022.66666666667,2022.75,2022.83333333333,2022.91666666667,2023,2023.08333333333,2023.16666666667,2023.25,2023.33333333333],"y":[973820.10071829,875639.070880462,883429.77843585,872783.345004425,883693.508427171,882715.478674451,872752.217240646,883451.416747466,872721.287401324,882976.94536498,883146.113520935,852352.029809817,882848.615837493,873691.034785979,812179.78556578],"text":["yearmonth: Mar 2022<br />value:  973820.1","yearmonth: Apr 2022<br />value:  875639.1","yearmonth: May 2022<br />value:  883429.8","yearmonth: Jun 2022<br />value:  872783.3","yearmonth: Jul 2022<br />value:  883693.5","yearmonth: Aug 2022<br />value:  882715.5","yearmonth: Sep 2022<br />value:  872752.2","yearmonth: Oct 2022<br />value:  883451.4","yearmonth: Nov 2022<br />value:  872721.3","yearmonth: Dec 2022<br />value:  882976.9","yearmonth: Jan 2023<br />value:  883146.1","yearmonth: Feb 2023<br />value:  852352.0","yearmonth: Mar 2023<br />value:  882848.6","yearmonth: Apr 2023<br />value:  873691.0","yearmonth: May 2023<br />value:  812179.8"],"type":"scatter","mode":"lines","line":{"width":4.53543307086614,"color":"rgba(139,90,0,1)","dash":"dot"},"hoveron":"points","name":"CostofLiving","legendgroup":"CostofLiving","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":31.9402241594022,"r":13.2835201328352,"b":38.5222083852221,"l":87.0070568700706},"plot_bgcolor":"transparent","paper_bgcolor":"rgba(213,228,235,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2022.10833333333,2023.39166666667],"tickmode":"array","ticktext":["Mar 2022","May 2022","Aug 2022","Oct 2022","Jan 2023","Mar 2023","May 2023"],"tickvals":[2022.16666666667,2022.33333333333,2022.58333333333,2022.75,2023,2023.16666666667,2023.33333333333],"categoryorder":"array","categoryarray":["Mar 2022","May 2022","Aug 2022","Oct 2022","Jan 2023","Mar 2023","May 2023"],"nticks":null,"ticks":"outside","tickcolor":"rgba(0,0,0,1)","ticklen":-6.6417600664176,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.531340805313408,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"yearmonth","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-84671.9083178949,6711643.25107622],"tickmode":"array","ticktext":["0","2,000,000","4,000,000","6,000,000"],"tickvals":[0,2000000,4000000,6000000],"categoryorder":"array","categoryarray":["0","2,000,000","4,000,000","6,000,000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":-6.6417600664176,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":1.16230801162308,"zeroline":false,"anchor":"x","title":{"text":"Amount","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"transparent","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":18.2648401826484}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"7e040637149":{"x":{},"y":{},"colour":{},"linetype":{},"type":"scatter"}},"cur_data":"7e040637149","visdat":{"7e040637149":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

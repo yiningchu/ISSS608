@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Getting Started
 
 ```{r}
-packages = c('tidyverse', 'patchwork', 'dplyr', 'lubridate',
+packages = c('tidyverse', 'patchwork', 'dplyr', 'lubridate', 'reshape2', 'ggthemes',
              'knitr', 'zoo', 'ggplot2', 'plotly', 'scales', 'directlabels')
 for(p in packages){
   if(!require(p, character.only = T)){
@@ -101,11 +101,48 @@ data_tidy <- data_tidy %>%
 kable(head(data_tidy))
 ```
 
+
 ```{r}
-p1 <- ggplot(data = data_tidy, aes(x = yearmonth, y = Wage), group = label) +
-   geom_line(colour = "grey", aes(yearmonth, CostofLiving)) +
-   geom_line(colour = "#408FA6")+
-   scale_y_continuous(labels = comma)
+data_tidy2 <- data_tidy[c(-2,-3,-5,-6)]
+```
+
+
+
+```{r}
+data_tidy3 <- melt(data_tidy2, id.vars = 'yearmonth')
+head(data_tidy3)
+```
+
+```{r}
+rename(data_tidy3, category = variable, amount = value)
+```
+
+
+
+```{r}
+p1 <- ggplot(data_tidy3, aes(x = yearmonth, y = value, colour = variable)) + 
+  geom_line(aes(linetype = variable), lwd = 1.2) + 
+  scale_color_manual(values = c("darkred", "steelblue",  "orange4"))+
+  scale_y_continuous(labels = scales::comma)+
+  ylab("Amount")+theme_economist()+theme(legend.position="none")#+
+  #geom_dl(aes(label = variable), method = list(dl.trans(x = x + .2), "last.points"))
+
+ggplotly(p1, tooltip = c('yearmonth', 'value'))
+```
+
+
+
+
+
+
+```{r, results = FALSE, echo = FALSE}
+p1 <- ggplot(data_tidy3, aes(x = yearmonth, y = value, colour = variable)) + 
+  geom_line(aes(color = variable, linetype = variable), lwd = 1.2) + 
+  scale_color_manual(values = c("darkred", "steelblue",  "orange3"))+
+  scale_y_continuous(labels = scales::comma)+
+  ylab("Amount")+theme_economist()+theme(legend.position="none")#+
+  #geom_dl(aes(label = variable), method = list(dl.trans(x = x + .2), "last.points"))
+
 ggplotly(p1)
 ```
 
