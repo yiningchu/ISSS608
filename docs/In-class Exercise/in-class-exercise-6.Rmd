@@ -18,7 +18,8 @@ knitr::opts_chunk$set(echo = TRUE)
 # Getting Started
 
 ```{r}
-packages = c('tmap', 'readr', 'sf', 'knitr', 'tidyr', 'dplyr')
+packages = c('tmap', 'readr', 'sf', 'knitr', 'tidyverse',
+             'dplyr', 'lubridate', 'sftime', 'rmarkdown')
 for(p in packages){
   if(!require(p, character.only = T)){
     install.packages(p)
@@ -26,6 +27,58 @@ for(p in packages){
   library(p, character.only = T)
 }
 ```
+```{r}
+schools <- read_sf("data/Schools.csv", 
+                   options = "GEOM_POSSIBLE_NAMES=location")
+
+pubs <- read_sf("data/Pubs.csv", 
+                   options = "GEOM_POSSIBLE_NAMES=location")
+
+apartments <- read_sf("data/Apartments.csv", 
+                   options = "GEOM_POSSIBLE_NAMES=location")
+
+buildings <- read_sf("data/Buildings.csv", 
+                   options = "GEOM_POSSIBLE_NAMES=location")
+
+employers <- read_sf("data/Employers.csv", 
+                   options = "GEOM_POSSIBLE_NAMES=location")
+
+restaurants <- read_sf("data/Restaurants.csv", 
+                   options = "GEOM_POSSIBLE_NAMES=location")
+```
+
+```{r}
+plot(schools)
+```
+
+```{r}
+print(schools)
+```
+
+```{r}
+print(buildings)
+```
+```{r}
+tmap_mode("view")
+tm_shape(buildings)+
+tm_polygons(col = "grey60",
+           size = 1,
+           border.col = "black",
+           border.lwd = 1)
+tmap_mode("plot")
+```
+
+```{r}
+tmap_mode("plot")
+tm_shape(buildings)+
+tm_polygons(col = "grey60",
+           size = 1,
+           border.col = "black",
+           border.lwd = 1) +
+tm_shape(employers) +
+  tm_dots(col = "red")
+```
+
 
 ```{r}
 sgpools <- read_csv("data/SGPools_svy21.csv")
