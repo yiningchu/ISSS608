@@ -1,0 +1,115 @@
+---
+title: "In-class Exercise 6"
+description: |
+ 
+author:
+  - name: Chu Yi Ning 
+    url: https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile
+    affiliation: SMU SCIS
+    affiliation_url: https://scis.smu.edu.sg/
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Getting Started
+
+```{r}
+packages = c('tmap', 'readr', 'sf', 'knitr', 'tidyr', 'dplyr')
+for(p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+}
+```
+
+```{r}
+sgpools <- read_csv("data/SGPools_svy21.csv")
+```
+
+```{r, echo = FALSE}
+kable(head(sgpools))
+```
+
+
+```{r}
+sgpools_sf <- st_as_sf(
+  sgpools, 
+  coords = c("XCOORD",
+             "YCOORD"),
+             crs= 3414)
+```
+
+
+```{r, echo = FALSE}
+kable(head(sgpools_sf))
+```
+
+```{r}
+tmap_mode("view")
+tm_shape(sgpools_sf)+
+tm_bubbles(col = "red",
+           size = 1,
+           border.col = "black",
+           border.lwd = 1)
+```
+
+```{r}
+tm_shape(sgpools_sf)+
+tm_bubbles(col = "red",
+           size = "Gp1Gp2 Winnings",
+           border.col = "black",
+           border.lwd = 0.5)
+```
+
+```{r}
+tm_shape(sgpools_sf)+
+tm_bubbles(col = "OUTLET TYPE",
+          size = "Gp1Gp2 Winnings",
+          border.col = "black",
+          border.lwd = 0.5)
+```
+
+```{r}
+mpsz <- st_read(dsn = "data/geospatial", 
+                layer = "MP14_SUBZONE_WEB_PL")
+
+popagsex <- read_csv("data/respopagsex2000to2018.csv")
+```
+
+```{r}
+popagsex2018_male <- popagsex %>%
+  filter(Sex == "Males") %>%
+  filter(Time == 2018) %>%
+  spread(AG, Pop) %>%
+  mutate(YOUNG = `0_to_4`+`5_to_9`+`10_to_14`+
+`15_to_19`+`20_to_24`) %>%
+mutate(`ECONOMY ACTIVE` = rowSums(.[9:13])+
+rowSums(.[15:17]))%>%
+mutate(`AGED`=rowSums(.[18:22])) %>%
+mutate(`TOTAL`=rowSums(.[5:22])) %>%  
+mutate(`DEPENDENCY` = (`YOUNG` + `AGED`)
+/`ECONOMY ACTIVE`) %>%
+mutate_at(.vars = vars(PA, SZ), 
+          .funs = funs(toupper)) %>%
+  select(`PA`, `SZ`, `YOUNG`, 
+         `ECONOMY ACTIVE`, `AGED`, 
+         `TOTAL`, `DEPENDENCY`) %>%
+  filter(`ECONOMY ACTIVE` > 0)
+```
+
+```{r}
+mpsz_agemale2018 <- left_join(mpsz,
+                              popagsex2018_male,
+                              by = c("SUBZONE_N" = "SZ"))
+```
+
+```{r}
+tmap_mode("plot")
+qtm(mpsz_agemale2018, 
+    fill = "DEPENDENCY")
+```
